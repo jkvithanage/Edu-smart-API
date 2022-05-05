@@ -27,8 +27,8 @@ public class CustomerController {
     }
 
     @PutMapping(path = "admin/member")
-    public String updateCustomer() {
-        return "Customer Updated!";
+    public String updateCustomer(@RequestBody(required = true) CustomerDTO dto) {
+        return customerService.updateCustomer(dto);
     }
 
     @GetMapping(path = "admin/member")

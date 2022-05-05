@@ -54,4 +54,18 @@ public class CustomerServiceIMPL implements CustomerService {
         customerRepo.deleteById(id);
         return id + " - Deleted!";
     }
+
+    @Override
+    public String updateCustomer(CustomerDTO dto) {
+        Optional<Customer> id = customerRepo.findById(dto.getId());
+        if (id.isPresent()){
+            Customer customer = id.get();
+            customer.setName(dto.getName());
+            customer.setAddress(dto.getAddress());
+            customer.setSalary(dto.getSalary());
+            return customerRepo.save(customer).getId()+" - Updated!";
+        }else {
+            return "Empty Result!";
+        }
+    }
 }
