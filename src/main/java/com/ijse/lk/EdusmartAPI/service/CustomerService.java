@@ -8,4 +8,5 @@ public interface CustomerService {
     public String saveCustomer(CustomerDTO dto);
     public CustomerDTO getCustomer(String id);
     public ArrayList<CustomerDTO> loadAllCustomers();
+    public String deleteCustomer(String id);
 }

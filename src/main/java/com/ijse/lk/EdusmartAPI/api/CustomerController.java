@@ -22,8 +22,8 @@ public class CustomerController {
     }
 
     @DeleteMapping(path = "admin/member")
-    public String deleteCustomer(String id) {
-        return "Customer Deleted! - " + id;
+    public String deleteCustomer(@RequestParam(required = true) String id) {
+        return customerService.deleteCustomer(id);
     }
 
     @PutMapping(path = "admin/member")

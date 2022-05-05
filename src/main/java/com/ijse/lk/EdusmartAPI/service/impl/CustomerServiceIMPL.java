@@ -48,4 +48,10 @@ public class CustomerServiceIMPL implements CustomerService {
         });
         return dtoArrayList;
     }
+
+    @Override
+    public String deleteCustomer(String id) {
+        customerRepo.deleteById(id);
+        return id + " - Deleted!";
+    }
 }
